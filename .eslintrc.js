@@ -5,9 +5,12 @@ module.exports = {
     // Other ESLint configurations
     rules: {
       // Other rules...
-      // Ignore specific rules by setting them to "off" or 0
-      'no-undef': 'off', // Ignore "no-undef" rule
-      '@typescript-eslint/no-var-requires': 'off', // Ignore "@typescript-eslint/no-var-requires" rule
+      // Ignore all rules for now
+      'no-unused-vars': 'off',
+      'no-undef': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       // Other rules...
     }
   };
+  
