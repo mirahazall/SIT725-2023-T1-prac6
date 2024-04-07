@@ -9,7 +9,7 @@ pipeline {
                 sh 'env'
             }
         }
-        
+
         stage('Build') {
             steps {
                 // Checkout source code from github
@@ -21,15 +21,24 @@ pipeline {
                 sh 'npm run build' 
                 echo "Building the code using Node Package Manager(npm)"
                  // create a Docker image
-                sh 'docker build -t mirahazall/jenkins-docker .'
+               // sh 'docker build -t mirahazall/jenkins-docker .'
             }
         }
         
         stage('Test') {
             steps {
+                sh 'npm test' 
                 echo "Running unit tests to ensure the code functions as expected using Mocha and Chai"
             }
         }
+
+        stage(' Code Quality Analysis') {
+            steps {
+                echo "Analysing code quality."
+                // Execute ESLint
+                  sh 'eslint .'
+                }
+            }
         
         stage('Deploy') {
             steps {
