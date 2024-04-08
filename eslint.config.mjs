@@ -1,26 +1,35 @@
+import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 
 export default [
+  // Configuration for JavaScript files
   {
     files: ["**/*.js"],
     languageOptions: {
       sourceType: "commonjs",
-      globals: {
-        browser: true // Define your global variables here
-      }
+      globals: globals.browser // Define global variables
     },
     plugins: {
-      "@eslint/js": pluginJs,
-      "typescript-eslint": tseslint
+      "@eslint/js": pluginJs
     },
-    extends: ["plugin:@eslint/js/recommended", "plugin:typescript-eslint/recommended"],
     rules: {
       'no-unused-vars': 'off', // Ignore unused variables
       'no-undef': 'off', // Ignore undefined variables
       '@typescript-eslint/no-var-requires': 'off', // Ignore require statements
       '@typescript-eslint/no-unused-vars': 'off' // Ignore unused variables in TypeScript code
-      // Add other rules here if needed
+      // Add other JavaScript-specific rules here if needed
+    }
+  },
+  // Configuration for TypeScript files
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      "typescript-eslint": tseslint
+    },
+    rules: {
+      // TypeScript-specific rules
+      // Add other TypeScript-specific rules here if needed
     }
   }
 ];
