@@ -10,7 +10,10 @@ export default [
         browser: true // Define your global variables here
       }
     },
-    plugins: ["@eslint/js", "typescript-eslint"],
+    plugins: {
+      "@eslint/js": pluginJs,
+      "typescript-eslint": tseslint
+    },
     extends: ["plugin:@eslint/js/recommended", "plugin:typescript-eslint/recommended"],
     rules: {
       'no-unused-vars': 'off', // Ignore unused variables
@@ -21,6 +24,7 @@ export default [
     }
   }
 ];
+
 
 
   
