@@ -5,7 +5,9 @@ import tseslint from "typescript-eslint";
 export default [
   {
     files: ["**/*.js"],
-    parserOptions: { sourceType: "commonjs" },
+    languageOptions: {
+      parserOptions: { sourceType: "commonjs" }
+    },
     globals: {
       browser: true,
       ...globals.browser
@@ -21,4 +23,5 @@ export default [
     }
   }
 ];
+
   
